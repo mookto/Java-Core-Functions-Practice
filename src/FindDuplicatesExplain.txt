@@ -1,0 +1,83 @@
+
+
+
+
+## ✅ Step 1: Variables Initialize
+
+```java
+String str = "programming";
+Map<Character, Integer> map = new HashMap<>();
+```
+
+* `str` = `"programming"` → input string
+* `map` → প্রতিটি character কতবার এসেছে সেটা রাখবে
+
+---
+
+## ✅ Step 2: Loop through characters
+
+```java
+for(char c : str.toCharArray()) {
+    map.put(c, map.getOrDefault(c, 0) + 1);
+}
+```
+
+### How it works:
+
+* `str.toCharArray()` → string কে character array-এ convert করে
+* প্রতিটি character `c`-এর জন্য:
+
+  * `map.getOrDefault(c, 0)` → যদি `c` map-এ থাকে, তার value নাও, না থাকলে 0 নাও
+  * +1 করে map-এ update করো
+
+### 🔹 Iteration Example
+
+| Character | map after update               |
+| --------- | ------------------------------ |
+| p         | {p=1}                          |
+| r         | {p=1, r=1}                     |
+| o         | {p=1, r=1, o=1}                |
+| g         | {p=1, r=1, o=1, g=1}           |
+| r         | {p=1, r=2, o=1, g=1}           |
+| a         | {p=1, r=2, o=1, g=1, a=1}      |
+| m         | {p=1, r=2, o=1, g=1, a=1, m=1} |
+| m         | {p=1, r=2, o=1, g=1, a=1, m=2} |
+| i         | ...                            |
+| n         | ...                            |
+| g         | g already 1 → g=2              |
+
+* শেষ পর্যন্ত map দেখাবে:
+
+```
+{p=1, r=2, o=1, g=2, a=1, m=2, i=1, n=1}
+```
+
+---
+
+## ✅ Step 3: Find duplicates
+
+```java
+for(Map.Entry<Character, Integer> entry : map.entrySet()) {
+    if(entry.getValue() > 1) {
+        System.out.println(entry.getKey() + " = " + entry.getValue());
+    }
+}
+```
+
+### 🔹 Logic:
+
+* map-এর সব key-value pair check করা হচ্ছে
+* value > 1 → duplicate character
+* print করা হচ্ছে
+
+### 🔹 Output
+
+```
+Duplicate Characters:
+r = 2
+g = 2
+m = 2
+```
+
+---
+
