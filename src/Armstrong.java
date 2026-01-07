@@ -1,4 +1,11 @@
 public class Armstrong {
+    //কোনো ৩ অঙ্কের সংখ্যার প্রতিটি digit-এর cube (³) এর যোগফল যদি সংখ্যাটির সমান হয় তাহলে সেটিকে Armstrong Number বলে।
+// যেমন:
+// 153
+// = 1³ + 5³ + 3³
+// = 1 + 125 + 27
+// = 153 ✔
+// তাই 153 একটি Armstrong Number
     public static void main(String[] args) {
 
         int num = 153;      // যেই সংখ্যাটা চেক করব
